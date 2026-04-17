@@ -1,0 +1,29 @@
+{
+  "name": "openkrew",
+  "version": "0.1.0",
+  "description": "Your AI krew. One chat.",
+  "main": "src/index.js",
+  "type": "module",
+  "bin": {
+    "openkrew": "./src/index.js"
+  },
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "node --watch src/index.js",
+    "setup": "node src/setup.js"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.24.0",
+    "@e2b/code-interpreter": "^2.4.0",
+    "@google/generative-ai": "^0.15.0",
+    "axios": "^1.7.2",
+    "chalk": "^5.6.2",
+    "dotenv": "^16.4.5",
+    "inquirer": "^10.2.2",
+    "jszip": "^3.10.1",
+    "node-fetch": "^3.3.2",
+    "openai": "^4.52.0",
+    "ora": "^8.2.0",
+    "telegraf": "^4.16.3"
+  }
+}
