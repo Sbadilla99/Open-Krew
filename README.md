@@ -1,91 +1,169 @@
-# 🤝 OpenKrew
+<div align="center">
 
-> Your AI krew. One chat.
+# ⚡ OpenKrew
 
-OpenKrew is a group chat where Claude, ChatGPT, and Gemini collaborate in real time — via Telegram, from your terminal. They read each other's messages, build on each other's ideas, and debate. You can mention any of them directly.
+**Multi-agent AI orchestration. Any task. Any channel.**
+
+*Send one message. Your krew of AI engines collaborates, executes, and delivers.*
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Node.js](https://img.shields.io/badge/Node.js-18+-green.svg)](https://nodejs.org)
+[![Powered by Anthropic](https://img.shields.io/badge/Powered%20by-Anthropic-orange.svg)](https://anthropic.com)
+[![Deployed on Netlify](https://img.shields.io/badge/Deployed%20on-Netlify-teal.svg)](https://netlify.com)
+
+</div>
+
+---
+
+## What is OpenKrew?
+
+OpenKrew is an **open-source multi-agent orchestration engine** that connects language models, deployment engines, and external tools — all accessible from any chat interface.
+
+You describe what you need in plain language. OpenKrew's intelligent router classifies the task, assembles the right pipeline of AI engines, executes them in sequence, and returns the result — directly in your chat.
+
+No interfaces to learn. No tabs to switch. No prompts to engineer.
+
+---
+
+## The architecture
+
+```
+Your message (Telegram, WhatsApp, Web, API)
+            │
+            ▼
+    ┌───────────────┐
+    │  Smart Router  │  ← Classifies intent with AI
+    └───────┬───────┘
+            │
+     ┌──────┴──────┐
+     ▼             ▼
+  Pipeline A    Pipeline B    ...Pipeline N
+     │
+     ├── 🧠 Analyst Engine     (GPT-4o, Claude, Gemini)
+     ├── ⚙️  Engineer Engine    (Claude Sonnet, GPT-4o)
+     └── 🚀 Execution Engine   (Netlify, GitHub, APIs)
+            │
+            ▼
+     Result delivered to your chat
+```
+
+Every engine communicates through shared memory — not through the chat window. The user only sees the final output.
+
+---
+
+## Pipelines
+
+| Intent | Engines involved | Output |
+|--------|-----------------|--------|
+| 🌐 **Web** — *"Build a landing page for..."* | Analyst → Engineer → Netlify | Permanent HTTPS URL |
+| 📄 **Document** — *"Write a business plan for..."* | Analyst → Writer | Full structured document |
+| 💻 **Code** — *"Write a script that..."* | Engineer | Production-ready code |
+| 🔍 **Research** — *"Analyze / compare..."* | Researcher → Analyst | Structured insights |
+| 🌍 **Translate** — *"Translate this to..."* | Translator | Translated content |
+| 💬 **Chat** — anything else | Full krew | Real-time group conversation |
+
+---
+
+## Powered by best-in-class engines
+
+**Language Models**
+- [Anthropic Claude](https://anthropic.com) — architecture, engineering, technical reasoning
+- [OpenAI GPT-4o](https://openai.com) — analysis, copy, creative tasks
+- [Google Gemini](https://deepmind.google) — research, multilingual, multimodal
+
+**Execution & Deployment**
+- [Netlify](https://netlify.com) — atomic deployments, global CDN, permanent HTTPS URLs
+
+**Channels** *(connect any)*
+- Telegram — included out of the box
+- WhatsApp — coming soon
+- Web dashboard — coming soon
+- REST API — use OpenKrew programmatically
 
 ---
 
 ## Install
 
 ```bash
-curl -fsSL https://openkrew.ai/install.sh | bash
+# Via npm
+npm install -g openkrew
+
+# Or clone
+git clone https://github.com/Sbadilla99/Open-Krew.git
+cd Open-Krew && npm install
 ```
 
 ## Setup
 
 ```bash
-npm run setup
+openkrew setup
+```
+
+The interactive wizard connects your engines:
+
+```
+📱  Channel          →  Telegram bot token
+🧠  Language models  →  Anthropic / OpenAI / Google API keys  
+🚀  Deployment       →  Netlify Personal Access Token
 ```
 
 ## Run
 
 ```bash
-npm start
+openkrew start
 ```
 
 ---
 
-## How it works
-
-Every message you send goes to all active krew members simultaneously. Each AI reads the full group history — including what the other AIs said — and responds in context. It's a real group chat, not parallel isolated sessions.
+## Try it
 
 ```
-You: "Build a landing page for a fintech app"
+"Build a dark SaaS landing page for a product called Novu"
 
-🟡 CLAUDE
-Here's the architecture: React + Tailwind, 
-3 sections: Hero, Features, CTA...
+"Write an investor pitch deck outline for a B2B fintech in LATAM"
 
-🟢 CHATGPT
-Building on Claude's structure — hero copy: 
-"Your money, finally in control." Here are 
-3 headline variants...
+"Write a Node.js webhook handler that verifies Stripe signatures"
 
-🔵 GEMINI
-Research shows fintech landing pages convert 
-40% better with social proof above the fold. 
-Suggest adding a metrics bar under the hero...
+"Compare Stripe vs Adyen vs Conekta for a Mexican e-commerce"
+
+"Translate this privacy policy to Spanish, keep legal tone"
 ```
-
----
-
-## Mention specific members
-
-```
-@claude review this code
-@chatgpt write 3 headline options
-@gemini research the competitor landscape
-```
-
----
-
-## Commands
-
-| Command | Description |
-|---------|-------------|
-| `/krew` | See active members |
-| `/new` | Start fresh conversation |
-| `/help` | Help |
-
----
-
-## Requirements
-
-- Node.js 18+
-- Telegram bot token (from @BotFather)
-- At least one AI API key
 
 ---
 
 ## Roadmap
 
-- [ ] Replit connector (live code execution)
-- [ ] WhatsApp support
-- [ ] Skill system
-- [ ] Web dashboard
-- [ ] Memory persistence
+- [x] Multi-pipeline router (web, document, code, research, translate)
+- [x] Netlify deployment engine
+- [x] Telegram channel
+- [ ] WhatsApp channel
+- [ ] Web dashboard with session history
+- [ ] Skills system — custom pipelines as `.krew` files
+- [ ] KrewHub — skills marketplace
+- [ ] Tool connectors — Gmail, Notion, GitHub, Slack, Stripe
+- [ ] Self-hosted proxy with usage analytics
 
 ---
 
-Built with ❤️ — open source, runs on your machine.
+## Contributing
+
+OpenKrew is open source and built in public.
+PRs, issues, and skill contributions are welcome.
+
+```
+github.com/Sbadilla99/Open-Krew
+```
+
+---
+
+<div align="center">
+
+Built with ❤️ for the community— open source, runs on your machine. 
+
+*Open source · Runs on your machine · No vendor lock-in*
+
+</div>
+
+---
+
+
